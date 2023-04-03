@@ -7,10 +7,20 @@ import { messages } from '@/i18n'
 import { ConfigProvider } from 'antd-mobile'
 // 自定义 国际化的语言
 import { IntlProvider } from 'react-intl'
+import { changeToken } from './store/actions/module/app'
+import { useEffect } from 'react'
+import { getParamsFromUrl } from './utils'
 
 const App = (props: any) => {
     // 从状态获取语言
-    const { locale } = props
+    const { locale, setToken } = props
+
+    useEffect(() => {
+        const token = getParamsFromUrl('token')
+        if (token) {
+            setToken(token)
+        }
+    }, [])
 
     return (
         // antd国际化
@@ -34,4 +44,13 @@ const mapStateToProps = (state: any) => {
     }
 }
 
-export default connect(mapStateToProps)(App)
+// 传入全局状态方法
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        setToken(token: string) {
+            dispatch(changeToken(token))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

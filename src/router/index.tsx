@@ -12,7 +12,6 @@ type routeItem = {
 }
 
 const routes: RouteObject[] | routeItem[] = [
-    //
     {
         path: '/', // 默认重定向
         element: <Navigate replace to="/home" />

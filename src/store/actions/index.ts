@@ -1,5 +1,4 @@
-import { changeName } from './module/a'
-import { changeAge } from './module/b'
+import { changeToken, changeOpenInstall } from './module/app'
 import { changeLocale } from './module/locale'
 
-export { changeName, changeAge, changeLocale }
+export { changeToken, changeOpenInstall, changeLocale }

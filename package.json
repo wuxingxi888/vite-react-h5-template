@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "author": "wuXingXi",
     "bugs": {
-        "url": "https://github.com/wuxingxi888/vite-vue3-h5-template/issues"
+        "url": "https://github.com/wuxingxi888/vite-react-h5-template/issues"
     },
-    "homepage": "https://github.com/wuxingxi888/vite-vue3-h5-template#readme",
+    "homepage": "https://github.com/wuxingxi888/vite-react-h5-template#readme",
     "scripts": {
         "dev": "tsc && vite --mode development",
         "prod": "tsc && vite --mode production",
@@ -25,6 +25,7 @@
         "antd-mobile-icons": "^0.3.0",
         "axios": "^1.2.2",
         "lodash-es": "^4.17.21",
+        "prop-types": "^15.8.1",
         "qs": "^6.11.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

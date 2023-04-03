@@ -17,7 +17,7 @@ const initState = {
 export default function a(state = initState, action: actionType) {
     switch (action.type) {
         case types.CHANGE_LOCALE:
-            switch (action.params) {
+            switch (action.data) {
                 case localeType['zhCN']:
                     return {
                         ...state,

@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux'
-import a from './module/a'
-import b from './module/b'
+import app from './module/app'
 import locale from './module/locale'
 export default combineReducers({
-    a,
-    b,
+    app,
     locale
 })

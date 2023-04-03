@@ -43,10 +43,5 @@ declare interface ViteEnv {
 declare class OpenInstall {
     constructor(options?: any, data?: any)
     static parseUrlParams(): void
-    wakeupOrInstall(params?: {
-        data: {
-            inviteKey?: string
-        }
-        timeout: number
-    }): void
+    wakeupOrInstall(params?: { data: any; timeout: number }): void
 }

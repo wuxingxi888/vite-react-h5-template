@@ -1,5 +1,4 @@
-import { CHANGE_NAME } from './module/a'
-import { CHANGE_AGE } from './module/b'
+import { CHANGE_TOKEN, CHANGE_OPEN_INSTALL } from './module/app'
 import { CHANGE_LOCALE } from './module/locale'
 
-export { CHANGE_NAME, CHANGE_AGE, CHANGE_LOCALE }
+export { CHANGE_TOKEN, CHANGE_OPEN_INSTALL, CHANGE_LOCALE }
