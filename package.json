@@ -17,7 +17,8 @@
         "lint:eslint": "eslint --cache --max-warnings 0  \"src/**/*.{ts,tsx}\" --fix",
         "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
         "preinstall": "npx only-allow pnpm",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "commit": "git-cz"
     },
     "dependencies": {
         "ahooks": "^3.7.4",

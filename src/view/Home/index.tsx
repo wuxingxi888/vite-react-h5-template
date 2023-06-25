@@ -47,6 +47,10 @@ const Home = (props: any) => {
         </div>
     )
 }
+// 传入全局状态
+const mapStateToProps = (state: any) => {
+    return {}
+}
 
 // 传入全局状态方法
 const mapDispatchToProps = (dispatch: any) => {
@@ -56,4 +60,4 @@ const mapDispatchToProps = (dispatch: any) => {
         }
     }
 }
-export default connect(mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
