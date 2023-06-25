@@ -1,6 +1,4 @@
 import './index.scss'
-import { connect } from 'react-redux'
-import { changeLocale } from '@/store/actions'
 
 import { localeType } from '@/i18n/type'
 
@@ -8,9 +6,11 @@ import FloatingBubble from '@/components/FloatingBubble'
 
 import { Button, Space, Card } from 'antd-mobile'
 
+import { useDispatch } from '@/store'
+import { setLanguage } from '@/store/modules/global'
+
 const Home = (props: any) => {
-    // 接收全局状态参数
-    const { changeLocaleFn } = props
+    const dispatch = useDispatch()
 
     return (
         <div className="home">
@@ -18,21 +18,21 @@ const Home = (props: any) => {
                 <Button
                     size="mini"
                     color="primary"
-                    onClick={() => changeLocaleFn(localeType['zhCN'])}
+                    onClick={() => dispatch(setLanguage(localeType['zhCN']))}
                 >
                     中文
                 </Button>
                 <Button
                     size="mini"
                     color="primary"
-                    onClick={() => changeLocaleFn(localeType['enUS'])}
+                    onClick={() => dispatch(setLanguage(localeType['enUS']))}
                 >
                     英文
                 </Button>
                 <Button
                     size="mini"
                     color="primary"
-                    onClick={() => changeLocaleFn(localeType['zhTW'])}
+                    onClick={() => dispatch(setLanguage(localeType['zhTW']))}
                 >
                     繁体
                 </Button>
@@ -47,17 +47,5 @@ const Home = (props: any) => {
         </div>
     )
 }
-// 传入全局状态
-const mapStateToProps = (state: any) => {
-    return {}
-}
 
-// 传入全局状态方法
-const mapDispatchToProps = (dispatch: any) => {
-    return {
-        changeLocaleFn(params: string) {
-            dispatch(changeLocale(params))
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home
