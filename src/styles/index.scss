@@ -6,9 +6,7 @@
     box-sizing: border-box;
 }
 
-html,
-body,
-#app {
+#root {
     width: 100%;
     height: 100%;
     background-color: $background-color;
