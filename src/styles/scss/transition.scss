@@ -1,0 +1,53 @@
+/* 淡入淡出动画 */
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+/* 路由切换动画 */
+.route-page {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    background: rgb(255 255 255 / 15%);
+    border-radius: 10px;
+}
+
+.route-enter {
+    opacity: 0;
+    transform: translateX(100px);
+}
+
+.route-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.route-exit {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.route-exit-active {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}

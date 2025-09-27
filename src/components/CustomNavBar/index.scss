@@ -1,0 +1,32 @@
+.custom-navbar-container {
+    width: 100%;
+
+    .adm-nav-bar-back-arrow {
+        font-size: 19px;
+        font-weight: 600;
+    }
+
+    .adm-nav-bar-title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    @include use-theme {
+        color: get-var('main-text-color');
+        background-color: get-var('main-card-bg-color');
+    }
+}
+
+.custom-navbar-fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+@media screen and (width >= 576px) {
+    .custom-navbar-fixed {
+        top: 29px !important;
+    }
+}

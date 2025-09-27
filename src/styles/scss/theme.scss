@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+// 主题
+$themes: (
+    // 白亮
+    light: (
+            main-bg-color: #f8f8f8,
+            main-card-color: rgb(255 255 255 / 70%),
+            main-card-bg-color: #fff,
+            main-text-color: #000,
+        ),
+    // 暗黑
+    dark: (
+            main-bg-color: #121212,
+            main-card-color: rgb(30 30 30 / 70%),
+            main-card-bg-color: #000,
+            main-text-color: #fff,
+        )
+);
+
+// 当前主题
+$cur-theme: light;
+
+// 混合优化（遍历上面的主题）
+@mixin use-theme() {
+    @each $key, $value in $themes {
+        $cur-theme: $key !global; // 当前的主题
+
+        // html 添加class 属性
+        html.#{$key} & {
+            @content;
+        }
+    }
+}
+
+// 生成对应主题的变量
+@function get-var($key) {
+    $theme-map: map.get($themes, $cur-theme);
+
+    @return map.get($theme-map, $key);
+}

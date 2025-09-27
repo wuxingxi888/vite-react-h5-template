@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "target": "ES2022", // 使用ES2022目标
+        "useDefineForClassFields": true, // 在类字段中使用define属性
+        "lib": ["ES2022", "DOM", "DOM.Iterable"], // 使用ES2022库
+        "module": "ESNext", // 使用ESNext模块
+        "skipLibCheck": true, // 跳过库检查
+
+        /* Bundler mode */
+        "moduleResolution": "bundler", // 使用bundler模式
+        "allowImportingTsExtensions": true, // 允许从.ts文件中导入
+        "isolatedModules": true, // 将每个文件视为独立的模块
+        "sourceMap": true, // 生成源码映射文件
+        "allowSyntheticDefaultImports": true, // 允许默认导入
+        "resolveJsonModule": true, // 允许解析json模块
+        "esModuleInterop": true, // 启用esModuleInterop
+        "verbatimModuleSyntax": true, // 使用严格的模块语法
+        "moduleDetection": "force", // 强制模块检测
+        "noEmit": true, // 不生成输出文件
+        "jsx": "react-jsx", // 使用React JSX语法
+
+        /* Linting */
+        "strict": true, // 启用严格类型检查
+        "noUnusedLocals": true, // 不允许未使用的局部变量
+        "noUnusedParameters": true, // 不允许未使用的参数
+        "erasableSyntaxOnly": true, // 允许使用可擦除的语法
+        "noFallthroughCasesInSwitch": true, // 不允许switch语句中有未处理的case
+        "noUncheckedSideEffectImports": true, // 不允许未检查的副作用导入
+
+        /* Paths */
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+    "include": ["**/*.ts", "src/**/*.d.ts", "**/*.tsx"],
+    "exclude": ["node_modules", "dist", "dist-*"]
+}

@@ -1,0 +1,54 @@
+@use './theme' as *;
+@use './transition.scss' as *;
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+
+    // 禁止选择文字
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @include scrollbar;
+
+    @include use-theme {
+        color: get-var('main-text-color');
+        background-color: get-var('main-bg-color');
+
+        .my-card {
+            color: get-var('main-text-color');
+            background-color: get-var('main-card-color');
+            backdrop-filter: blur(10px);
+        }
+    }
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (width >= 576px) {
+    body {
+        box-sizing: content-box;
+        padding-top: 30px;
+        overflow: hidden;
+        border: 5px solid #000;
+        border-radius: 30px;
+        transform: scale(0.8);
+
+        @include scrollbar;
+    }
+}

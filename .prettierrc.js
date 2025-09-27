@@ -1,41 +1,31 @@
-module.exports = {
-    plugins: ['prettier'],
-    // 一行最多 100 字符
-    printWidth: 100,
-    // 使用 4 个空格缩进
-    tabWidth: 4,
-    // 行尾需要有分号
-    semi: false,
-    // 使用单引号
-    singleQuote: true,
-    // 不使用缩进符，而使用空格
-    useTabs: false,
-    // 对象的 key 仅在必要时用引号
-    quoteProps: 'as-needed',
-    // jsx 不使用单引号，而使用双引号
-    jsxSingleQuote: false,
-    // 末尾需要有逗号
-    trailingComma: 'none',
-    // 大括号内的首尾需要空格
-    bracketSpacing: true,
-    // 大括号内需要换行
-    bracketSameLine: false,
-    // 箭头函数，只有一个参数的时候，也需要括号
-    arrowParens: 'always',
-    // 每个文件格式化的范围是文件的全部内容
-    rangeStart: 0,
-    // 不需要写文件开头的 @prettier
-    requirePragma: false,
-    // 不需要自动在文件开头插入 @prettier
-    insertPragma: false,
-    // 使用默认的折行标准
-    proseWrap: 'preserve',
-    // 根据显示样式决定 html 要不要折行
-    htmlWhitespaceSensitivity: 'strict',
-    // vue 文件中的 script 和 style 内不用缩进
-    vueIndentScriptAndStyle: false,
-    // 换行符使用 lf
-    endOfLine: 'auto',
-    // 格式化内嵌代码
-    embeddedLanguageFormatting: 'auto'
-}
+/** @type {import("prettier").Config} */
+export default {
+    printWidth: 100, // 一行的字符数，如果超过会进行换行，默认为80
+    tabWidth: 4, // 一个tab代表几个空格数，默认为2
+    useTabs: false, // 是否使用tab进行缩进，默认为false，表示用空格进行缩减
+    semi: true, // 行尾是否使用分号
+    singleQuote: true, // 字符串是否使用单引号，默认为false，使用双引号
+    quoteProps: 'as-needed', // 对象键值对中的字符串是否需要加引号
+    bracketSpacing: true, // 对象大括号之间是否有空格，默认为true，效果：{ foo: bar }
+    trailingComma: 'all', // 是否使用尾逗号，有三个可选值："none", "es5", "all"
+    jsxSingleQuote: false, // JSX 中的字符串是否使用单引号
+    arrowParens: 'always', // 箭头函数参数是否总是使用括号
+    insertPragma: false, // 是否在文件顶部插入@format注释
+    requirePragma: false, // 是否仅在文件中有@format注释时才格式化
+    proseWrap: 'never', // 长文本是否自动换行
+    htmlWhitespaceSensitivity: 'strict', // HTML中的空白字符敏感度
+    endOfLine: 'auto', // 文件末尾的换行符
+    rangeStart: 0, // 格式化的起始位置
+    // import 顺序自动格式化插件：
+    plugins: ['@trivago/prettier-plugin-sort-imports'],
+    importOrderSeparation: true,
+    importOrderSortSpecifiers: true,
+    importOrder: [
+        '^react(.*)$', // React 相关放在最前面
+        '<THIRD_PARTY_MODULES>', // 其他第三方模块
+        '^@/components/(.*)$', // 全局组件
+        '^@/(hooks|store)(.*)$', // 自定义 hooks 和 store 统一分组
+        '^@/(.*)$', // 其他 @/ 开头的模块
+        '^[./]', // 当前文件夹和父文件夹的相对导入
+    ],
+};

@@ -1,0 +1,51 @@
+.register-warp {
+    .adm-list-body {
+        border-radius: 6px;
+    }
+
+    .adm-list-item-content-prefix {
+        width: 30px;
+    }
+
+    .adm-form-footer {
+        padding: 0;
+        margin-top: 20px;
+
+        .adm-button {
+            margin-bottom: 15px;
+        }
+    }
+
+    .adm-checkbox {
+        --icon-size: 15px;
+
+        margin-right: 10px;
+    }
+
+    .policy-text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #666;
+        user-select: none;
+
+        .policy-link {
+            padding: 0;
+            font-size: 14px;
+            color: #1890ff;
+            text-decoration: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #40a9ff;
+                text-decoration: underline;
+            }
+
+            &:active {
+                color: #096dd9;
+            }
+        }
+    }
+}

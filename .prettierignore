@@ -1,11 +1,6 @@
-/dist/*
-.local
-.output.js
 /node_modules/**
-
-**/*.svg
-**/*.sh
-
+/dist/
+/dist*
 /public/*
-
-.npmrc
+/docs/*
+CHANGELOG
