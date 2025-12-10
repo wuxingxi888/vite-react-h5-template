@@ -48,11 +48,11 @@ export function getRoutesFromModules() {
  * @see https://reactrouter.com/start/data/route-object#loader
  */
 export function loader({ request }: LoaderFunctionArgs) {
-    const pathname = getPathName(request.url);
-    console.log('loader-page', pathname);
+    console.log('request', request);
     // 权限校验
+    // const pathname = getPathName(request.url);
     // const token = localStorage.getItem('token');
-    // // 未登录且不在白名单中，跳转到登录页
+    // 未登录且不在白名单中，跳转到登录页
     // if (!token && !WHITE_LIST.has(pathname)) {
     //     window.location.replace(`/login?callback=${encodeURIComponent(window.location.href)}`);
     //     return false;

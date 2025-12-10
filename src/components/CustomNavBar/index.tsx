@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 import { NavBar, type NavBarProps } from 'antd-mobile';
 
@@ -54,11 +54,14 @@ const CustomNavBar: React.FC<CustomNavBarProps> = (props) => {
     };
 
     // 合并样式
-    const navbarStyle: React.CSSProperties = {
-        ...customStyle,
-        ...(backgroundColor && { backgroundColor }),
-        ...(textColor && { color: textColor }),
-    };
+    const navbarStyle: React.CSSProperties = useMemo(
+        () => ({
+            ...customStyle,
+            ...(backgroundColor && { backgroundColor }),
+            ...(textColor && { color: textColor }),
+        }),
+        [customStyle, backgroundColor, textColor],
+    );
 
     return (
         <>

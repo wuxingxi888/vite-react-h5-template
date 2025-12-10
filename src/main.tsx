@@ -7,7 +7,6 @@ import VirtualStatusBar from './components/VirtualStatusBar/index.tsx';
 import { initAppPlugins } from './plugins/index.ts';
 
 function AppThemeProvider() {
-    console.log('AppThemeProvider');
     useThemeSync();
 
     return (
@@ -19,7 +18,6 @@ function AppThemeProvider() {
 }
 
 function setupApp() {
-    console.log('setupApp');
     initAppPlugins();
     const rootElement = document.getElementById('root');
     if (!rootElement) {

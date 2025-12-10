@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { List, Switch } from 'antd-mobile';
 
 import Icon from '@/components/ClassIcon';
@@ -5,6 +7,7 @@ import Icon from '@/components/ClassIcon';
 import { useRouter } from '@/hooks/useRouter';
 import { useAppStore } from '@/store/modules/useAppStore';
 import useThemeStore from '@/store/modules/useThemeStore';
+import { asyncLoadScript, removeScript } from '@/utils/script';
 
 import './index.scss';
 
@@ -16,6 +19,7 @@ const MENU_ITEMS = [
     { label: 'SVG图标', route: '/svgIcons', icon: 'i-hugeicons:svg-02' },
     { label: 'unoCss', route: '/unoCss', icon: 'i-simple-icons-unocss' },
     { label: 'FramerMotion', route: '/framerMotion', icon: 'i-svg-spinners-blocks-shuffle-3' },
+    { label: 'FigmaDemo', route: '/figmaDemo', icon: 'i-simple-icons:figma' },
     {
         label: 'GITHUB',
         route: '/webview?title=GITHUB&url=https://github.com/wuxingxi888',
@@ -41,6 +45,25 @@ function Example() {
     };
 
     const { openEruda, setOpenEruda } = useAppStore();
+
+    // 处理 vConsole 的加载和卸载
+    useEffect(() => {
+        if (openEruda) {
+            asyncLoadScript({
+                src: 'https://cdn.bootcdn.net/ajax/libs/vConsole/3.15.1/vconsole.min.js',
+                id: 'vconsole',
+            }).then(() => {
+                if (!window.VConsole) return;
+                new window.VConsole({ theme: 'light' });
+            });
+        } else {
+            removeScript('vconsole').then(() => {
+                // 删除html根目录下所有的 #__vconsole
+                const vconsoleDom = document.querySelectorAll('#__vconsole');
+                vconsoleDom.forEach((item) => item.remove());
+            });
+        }
+    }, [openEruda]);
 
     const toggleEruda = (checked: boolean) => {
         setOpenEruda(checked);

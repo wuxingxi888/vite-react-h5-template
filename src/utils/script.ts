@@ -18,7 +18,6 @@ export const asyncLoadScript = async ({ src, id }: { src: string; id: string }):
             // 若script标签存在，则先删除
             const dom = document.getElementById(id) as HTMLScriptElement;
             if (dom && dom.src === src) {
-                console.log('删除成功');
                 dom.remove();
             }
             // 重新加载
@@ -33,7 +32,6 @@ export const asyncLoadScript = async ({ src, id }: { src: string; id: string }):
             scriptNode.setAttribute('src', src);
             document.body.appendChild(scriptNode);
             scriptNode.onload = () => {
-                console.log('script loaded');
                 resolve();
             };
         }

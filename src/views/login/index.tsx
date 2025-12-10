@@ -20,11 +20,9 @@ function Login() {
     const [currentState, setCurrentState] = useState<LoginStateEnum>(LoginStateEnum.LOGIN);
 
     useEffect(() => {
-        console.log('useEffect');
-
-        // 只有在组件卸载时才会执行清理函数
+        // 组件挂载和卸载时的清理逻辑可以在这里添加
         return () => {
-            console.log('useEffect return');
+            // 清理逻辑
         };
     }, []);
     const renderForm = () => {

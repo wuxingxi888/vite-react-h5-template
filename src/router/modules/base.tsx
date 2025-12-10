@@ -34,6 +34,11 @@ const routes: routeItem[] = [
         meta: { title: 'FramerMotion动画示例' },
         element: LazyLoad(lazy(() => import('@/views/example/FramerMotion'))),
     },
+    {
+        path: '/figmaDemo',
+        meta: { title: 'Figma演示' },
+        element: LazyLoad(lazy(() => import('@/views/example/FigmaDemo'))),
+    },
 ];
 
 export default routes;
