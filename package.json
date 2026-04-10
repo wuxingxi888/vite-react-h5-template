@@ -42,7 +42,8 @@
         "deps:check": "pnpm outdated -r",
         "deps:update": "pnpm update --latest",
         "prepare": "husky install",
-        "preinstall": "npx only-allow pnpm"
+        "preinstall": "npx only-allow pnpm",
+        "postinstall": "node scripts/sync-rules.js"
     },
     "dependencies": {
         "@unocss/reset": "66.5.1",

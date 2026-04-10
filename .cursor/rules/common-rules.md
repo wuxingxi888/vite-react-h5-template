@@ -1,1 +1,0 @@
-/Users/wuxingxi/Desktop/node-libs/vite-react-h5-template/.ai-rules/common-rules.md

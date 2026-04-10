@@ -21,3 +21,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# IDE 环境配置
+.cursor/
+.trae/
+.windsurf/
