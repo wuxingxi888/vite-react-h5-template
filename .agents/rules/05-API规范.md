@@ -1,5 +1,5 @@
 ---
-alwaysApply: false
+alwaysApply: true
 description: 项目的 API 规范，包括接口请求封装、函数命名约定、错误处理原则。当新增或修改接口时读取此规则。
 ---
 

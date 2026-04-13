@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import { Space } from 'antd-mobile';
 import { motion } from 'framer-motion';
 
@@ -7,9 +5,7 @@ import Logo from '@/components/Logo';
 
 import { useEnv } from '@/hooks/useEnv';
 
-import './index.scss';
-
-const Header = memo(() => {
+const Header = () => {
     const { getEnvConfig } = useEnv();
     // 环境变量在运行时不会改变，直接调用即可
     const title = getEnvConfig().title;
@@ -32,11 +28,11 @@ const Header = memo(() => {
             <p className="text-color-regular text-[14px]">简单完善.开箱即用 🎁</p>
         </header>
     );
-});
+};
 
 Header.displayName = 'Header';
 
-const Intro = memo(() => {
+const Intro = () => {
     const { getEnvConfig } = useEnv();
     // 环境变量在运行时不会改变，直接调用即可
     const title = getEnvConfig().title;
@@ -50,7 +46,7 @@ const Intro = memo(() => {
             </p>
         </section>
     );
-});
+};
 
 Intro.displayName = 'Intro';
 
@@ -81,7 +77,7 @@ const STACKS = [
     },
 ] as const;
 
-const Technical = memo(() => {
+const Technical = () => {
     return (
         <section className="mt-[30px]">
             <h3 className="font-black text-[18px] dark:text-garyWhite">技术栈</h3>
@@ -92,7 +88,7 @@ const Technical = memo(() => {
             </Space>
         </section>
     );
-});
+};
 
 Technical.displayName = 'Technical';
 
@@ -115,7 +111,7 @@ const SCHEME = [
     },
 ] as const;
 
-const Scheme = memo(() => {
+const Scheme = () => {
     return (
         <section className="mt-[30px]">
             <h3 className="font-black text-[18px] dark:text-garyWhite">协同方案</h3>
@@ -126,7 +122,7 @@ const Scheme = memo(() => {
             </Space>
         </section>
     );
-});
+};
 
 Scheme.displayName = 'Scheme';
 
@@ -134,7 +130,7 @@ const MERITS = [
     '💡 基于React18、antd-mobile、Vite7、TypeScript、UnoCSS等最新技术栈开发',
     '✨ 完善的Eslint + Prettier项目协同方案,开箱即用',
     '🔥 使用 Git Hook 进行 Lint Commit,规范化提交',
-    '🌠 使用最新Vue 3.4+ 语法',
+    '🌠 使用 React 函数式组件与 Hooks 开发',
     '⚡️  轻量快速的热重载,无论应用程序大小如何,都始终极快的模块热重载(HMR)',
     '🔩 具备主题配置及黑暗主题适配，且持久化保存',
     '🛠️ 丰富的 Vite 插件,集成大部分 Vite 插件，无需繁琐配置，开箱即用',
@@ -145,7 +141,7 @@ const MERITS = [
     '🥳 完善的登录系统、路由、Axios配置,所有基础设施已搭建完毕，你可以直接开发你的业务需求',
 ] as const;
 
-const Merits = memo(() => {
+const Merits = () => {
     return (
         <section className="mt-[30px]">
             <h3 className="font-black text-[18px] dark:text-garyWhite">优点</h3>
@@ -158,7 +154,7 @@ const Merits = memo(() => {
             </ul>
         </section>
     );
-});
+};
 
 Merits.displayName = 'Merits';
 function Home() {
