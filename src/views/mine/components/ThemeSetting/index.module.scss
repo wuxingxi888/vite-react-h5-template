@@ -1,0 +1,16 @@
+.themeSetting {
+    :global {
+        .adm-list-item-content-main {
+            font-size: 15px;
+        }
+
+        .adm-switch {
+            --height: 26px;
+            --width: 43px;
+        }
+
+        .adm-picker-view-column-wheel {
+            touch-action: none;
+        }
+    }
+}

@@ -11,6 +11,16 @@ metadata:
 
 Comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 69 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
 
+## React 18 模板使用说明
+
+- 本模板基线为 React 18 通用前端工程，应先使用 `.agents/rules/01-项目概述.md`、`.agents/rules/02-编码规范.md` 等项目规则确定边界。
+- 本技能只作为参考输入，不作为默认脚手架来源。
+- 只有在项目规则已确认适用时，才从本技能挑选单条规则吸收；不得整包套用。
+- 以下分组默认忽略，除非项目扩展规则显式开启：
+  - React 19 专属 API
+  - RSC / Server Actions / SSR / Next.js 专属规则
+  - 依赖 React Compiler 已启用的生成建议
+
 ## Template Boundary
 
 - In this React general-purpose template, this skill is **reference-only**, not a hard project baseline.
@@ -60,6 +70,8 @@ Reference these guidelines when:
 - `bundle-preload` - Preload on hover/focus for perceived speed
 
 ### 3. Server-Side Performance (HIGH)
+
+> **React 18 通用前端默认忽略本组。** 仅在项目明确存在服务端运行时能力时再参考。
 
 - `server-auth-actions` - Authenticate server actions like API routes
 - `server-cache-react` - Use React.cache() for per-request deduplication
@@ -130,6 +142,8 @@ Reference these guidelines when:
 
 ### 8. Advanced Patterns (LOW)
 
+> `advanced-effect-event-deps` 等依赖 `useEffectEvent` 的规则不属于 React 18 默认基线。
+
 - `advanced-effect-event-deps` - Don't put `useEffectEvent` results in effect deps
 - `advanced-event-handler-refs` - Store event handlers in refs
 - `advanced-init-once` - Initialize app once per app load
@@ -137,7 +151,14 @@ Reference these guidelines when:
 
 ## How to Use
 
-Read individual rule files for detailed explanations and code examples:
+使用顺序：
+
+1. 先按项目 rules 确认目录、技术栈、React 版本与能力边界。
+2. 再从本技能中挑选明确适用的单条规则。
+3. 若规则依赖 Next.js、RSC、SSR、React 19 或 React Compiler，默认跳过。
+4. 不得把本技能作为默认目录结构、默认 API 选型或默认脚手架模板。
+
+需要时再阅读单个 rule 文件：
 
 ```
 rules/async-parallel.md

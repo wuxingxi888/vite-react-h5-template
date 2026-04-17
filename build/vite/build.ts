@@ -1,6 +1,6 @@
 import type { BuildOptions } from 'vite';
 
-import type { ImportMetaEnv } from '@/types/env';
+import type { ImportMetaEnv } from '../../src/types/env';
 
 export function createBuild(viteEnv: ImportMetaEnv): BuildOptions {
     const { VITE_OUTPUT_DIR } = viteEnv;

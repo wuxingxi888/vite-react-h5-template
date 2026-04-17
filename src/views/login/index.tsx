@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 
 import ThemeToggle from '@/components/ThemeToggle';
 
-import ForgetPasswordForm from './ForgetPasswordForm';
-import LoginForm from './LoginForm';
-import LoginTitle from './LoginTitle';
-import LoginWave from './LoginWave';
-import RegisterForm from './RegisterForm';
+import ForgetPasswordForm from './components/ForgetPasswordForm';
+import LoginForm from './components/LoginForm';
+import LoginTitle from './components/LoginTitle';
+import LoginWave from './components/LoginWave';
+import RegisterForm from './components/RegisterForm';
 
 export const LoginStateEnum = {
     LOGIN: 0,

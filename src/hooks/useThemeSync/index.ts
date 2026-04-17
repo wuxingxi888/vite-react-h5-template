@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 
-import useThemeStore from '@/store/modules/useThemeStore';
+import { useThemeStore } from '@/stores';
 
 /**
  * 同步主题状态到 HTML 元素
  * 兼容 antd-mobile 内置深色模式主题
  */
 export function useThemeSync() {
-    const { themeMode, themeColor } = useThemeStore();
+    const themeMode = useThemeStore((state) => state.themeMode);
+    const themeColor = useThemeStore((state) => state.themeColor);
 
     useEffect(() => {
         const root = document.documentElement;

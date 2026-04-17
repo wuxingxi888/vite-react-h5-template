@@ -1,0 +1,34 @@
+.customNavbarContainer {
+    width: 100%;
+
+    :global {
+        .adm-nav-bar-back-arrow {
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .adm-nav-bar-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    @include use-theme {
+        color: get-var('main-text-color');
+        background-color: get-var('main-card-bg-color');
+    }
+}
+
+.customNavbarFixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+@media screen and (width >= 576px) {
+    .customNavbarFixed {
+        top: 29px !important;
+    }
+}

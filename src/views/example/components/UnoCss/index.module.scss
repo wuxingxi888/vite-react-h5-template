@@ -1,0 +1,7 @@
+.unoCssPage {
+    :global {
+        .custom-style-example {
+            @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg transform transition-all duration-300 hover:(scale-105 shadow-xl);
+        }
+    }
+}

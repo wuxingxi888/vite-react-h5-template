@@ -1,9 +1,10 @@
 import { Button } from 'antd-mobile';
 
-import useThemeStore from '@/store/modules/useThemeStore';
+import { useThemeStore } from '@/stores';
 
 function ThemeToggle() {
-    const { themeMode, setThemeMode } = useThemeStore();
+    const themeMode = useThemeStore((state) => state.themeMode);
+    const setThemeMode = useThemeStore((state) => state.setThemeMode);
 
     const toggleTheme = () => {
         setThemeMode(themeMode === 'light' ? 'dark' : 'light');

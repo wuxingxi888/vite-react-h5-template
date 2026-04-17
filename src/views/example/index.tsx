@@ -5,21 +5,25 @@ import { List, Switch } from 'antd-mobile';
 import Icon from '@/components/ClassIcon';
 
 import { useRouter } from '@/hooks/useRouter';
-import { useAppStore } from '@/store/modules/useAppStore';
-import useThemeStore from '@/store/modules/useThemeStore';
+import { useAppStore, useThemeStore } from '@/stores';
+
 import { asyncLoadScript, removeScript } from '@/utils/script';
 
-import './index.scss';
+import styles from './index.module.scss';
 
 const MENU_ITEMS = [
-    { label: '主题设置', route: '/themeSetting', icon: 'i-material-symbols:palette' },
+    { label: '主题设置', route: '/theme-setting', icon: 'i-material-symbols:palette' },
     { label: '404 页演示', route: '/err404', icon: 'i-tabler:error-404' },
-    { label: 'openInstall', route: '/openInstall', icon: 'i-material-symbols:apk-install-rounded' },
+    {
+        label: 'openInstall',
+        route: '/open-install',
+        icon: 'i-material-symbols:apk-install-rounded',
+    },
     { label: '项目依赖', route: '/dependence', icon: 'i-mdi:dependency' },
-    { label: 'SVG图标', route: '/svgIcons', icon: 'i-hugeicons:svg-02' },
-    { label: 'unoCss', route: '/unoCss', icon: 'i-simple-icons-unocss' },
-    { label: 'FramerMotion', route: '/framerMotion', icon: 'i-svg-spinners-blocks-shuffle-3' },
-    { label: 'FigmaDemo', route: '/figmaDemo', icon: 'i-simple-icons:figma' },
+    { label: 'SVG图标', route: '/svg-icons', icon: 'i-hugeicons:svg-02' },
+    { label: 'unoCss', route: '/uno-css', icon: 'i-simple-icons-unocss' },
+    { label: 'FramerMotion', route: '/framer-motion', icon: 'i-svg-spinners-blocks-shuffle-3' },
+    { label: 'FigmaDemo', route: '/figma-demo', icon: 'i-simple-icons:figma' },
     {
         label: 'GITHUB',
         route: '/webview?title=GITHUB&url=https://github.com/wuxingxi888',
@@ -38,13 +42,15 @@ const MENU_ITEMS = [
 ];
 
 function Example() {
-    const { themeMode, setThemeMode } = useThemeStore();
+    const themeMode = useThemeStore((state) => state.themeMode);
+    const setThemeMode = useThemeStore((state) => state.setThemeMode);
 
     const toggleTheme = (checked: boolean) => {
         setThemeMode(checked ? 'dark' : 'light');
     };
 
-    const { openEruda, setOpenEruda } = useAppStore();
+    const openEruda = useAppStore((state) => state.openEruda);
+    const setOpenEruda = useAppStore((state) => state.setOpenEruda);
 
     // 处理 vConsole 的加载和卸载
     useEffect(() => {
@@ -72,7 +78,7 @@ function Example() {
     const router = useRouter();
 
     return (
-        <div className="w-full h-full p-1 ">
+        <div className={`${styles.examplePage} w-full h-full p-1`}>
             <List mode="card">
                 <List.Item
                     extra={

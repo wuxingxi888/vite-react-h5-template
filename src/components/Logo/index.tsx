@@ -1,11 +1,11 @@
-import useThemeStore from '@/store/modules/useThemeStore';
+import { useThemeStore } from '@/stores';
 
 import { hexToRgba } from '@/utils/colorUtils';
 
 type LogoProps = { className?: string; name?: string };
 
 function Logo({ className }: LogoProps) {
-    const { themeColor } = useThemeStore(); // 获取主题色状态
+    const themeColor = useThemeStore((state) => state.themeColor);
 
     return (
         <div className={className}>

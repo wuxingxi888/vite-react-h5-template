@@ -5,15 +5,24 @@ import { TabBar } from 'antd-mobile';
 
 import ClassIcon from '@/components/ClassIcon';
 
-import { getMenuRoutes } from '@/router/utils/RouteGuard';
+import { getMenuRoutes } from '@/routes/utils/RouteGuard';
+
+const menus = getMenuRoutes();
+
+function isRouteActive(currentPathname: string, routePath: string) {
+    if (currentPathname === routePath) {
+        return true;
+    }
+
+    return currentPathname.startsWith(`${routePath}/`);
+}
 
 function Layout() {
-    const menus = useMemo(() => getMenuRoutes(), []);
     const navigate = useNavigate();
     const { pathname } = useLocation();
     const activeKey = useMemo(
-        () => menus.find((item) => pathname.startsWith(item.path || ''))?.path,
-        [menus, pathname],
+        () => menus.find((item) => item.path && isRouteActive(pathname, item.path))?.path,
+        [pathname],
     );
 
     return (

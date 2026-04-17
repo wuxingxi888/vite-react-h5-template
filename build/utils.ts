@@ -1,6 +1,8 @@
 import { resolve } from 'path';
 
-import type { ImportMetaEnv } from '@/types/env';
+import type { ImportMetaEnv } from '../src/types/env';
+
+type Recordable<T = string> = Record<string, T>;
 
 export function isDevFn(mode: string): boolean {
     return mode === 'development';
@@ -11,11 +13,11 @@ export function isProdFn(mode: string): boolean {
 }
 
 // 读取所有环境变量配置文件到process.env
-export function wrapperEnv(envConf: Recordable): ImportMetaEnv {
-    const ret: any = {};
+export function wrapperEnv(envConf: Recordable<string>): ImportMetaEnv {
+    const ret: Record<string, string | boolean> = {};
 
     for (const envName of Object.keys(envConf)) {
-        let realName = envConf[envName].replace(/\\n/g, '\n');
+        let realName: string | boolean = envConf[envName].replace(/\\n/g, '\n');
         realName = realName === 'true' ? true : realName === 'false' ? false : realName;
 
         ret[envName] = realName;
@@ -25,7 +27,7 @@ export function wrapperEnv(envConf: Recordable): ImportMetaEnv {
             process.env[envName] = JSON.stringify(realName);
         }
     }
-    return ret;
+    return ret as unknown as ImportMetaEnv;
 }
 
 // 获取当前时间

@@ -24,6 +24,8 @@ agents to work with as they scale.
 - In this React general-purpose template, this skill is advisory and should be applied selectively.
 - Prefer architecture and composition guidance that is compatible with React 18 first.
 - The React 19 section is opt-in only; do not treat it as the default baseline while `.agents/rules/01-项目概述.md` is still on React 18.
+- This skill should only be used when component APIs have already become complex enough to justify an architecture upgrade.
+- Do not use this skill to decide default component folder structure, dependency choice, or baseline component style.
 
 ## When to Apply
 
@@ -34,6 +36,8 @@ Reference these guidelines when:
 - Designing flexible component APIs
 - Reviewing component architecture
 - Working with compound components or context providers
+
+Skip this skill for ordinary page components, simple presentational components, or tasks that can be solved with clear semantic props.
 
 ## Rule Categories by Priority
 
@@ -75,6 +79,8 @@ Reference these guidelines when:
 - `react19-no-forwardref` - Don't use `forwardRef`; use `use()` instead of `useContext()`
 
 ## How to Use
+
+Use this skill only after project rules have already fixed the component boundary and React 18 compatibility constraints.
 
 Read individual rule files for detailed explanations and code examples:
 

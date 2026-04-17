@@ -6,10 +6,16 @@ import ClassIcon from '@/components/ClassIcon';
 
 import { useRouter } from '@/hooks/useRouter';
 
-import './index.scss';
+import styles from './index.module.scss';
 
 function RenderBanner() {
-    return <Image className="banner !h-70 !w-full" lazy src={'https://cdn.seovx.com/d/?mom=302'} />;
+    return (
+        <Image
+            className={`${styles.banner} !h-70 !w-full`}
+            lazy
+            src={'https://cdn.seovx.com/d/?mom=302'}
+        />
+    );
 }
 
 function RenderCell() {
@@ -24,7 +30,7 @@ function RenderCell() {
             label: '主题设置',
             icon: 'i-material-symbols:palette',
             onClick: () => {
-                router.push('/themeSetting');
+                router.push('/theme-setting');
             },
         },
         { label: '隐私政策', icon: 'i-material-symbols:list-alt-rounded', onClick: () => {} },
@@ -85,7 +91,7 @@ function RenderCell() {
 
 function Mine() {
     return (
-        <div className="mine-warp">
+        <div className={styles.minePage}>
             <RenderBanner></RenderBanner>
             <RenderCell></RenderCell>
         </div>

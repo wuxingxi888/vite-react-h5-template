@@ -3,8 +3,7 @@ import UnoCSS from 'unocss/vite';
 import type { Plugin } from 'vite';
 import checker from 'vite-plugin-checker';
 
-import type { ImportMetaEnv } from '@/types/env';
-
+import type { ImportMetaEnv } from '../../../src/types/env';
 import { configCdnImportPlugin } from './cdnImport';
 import { configCompressPlugin } from './compress';
 import { configImageminCompressPlugin } from './imageminCompress';

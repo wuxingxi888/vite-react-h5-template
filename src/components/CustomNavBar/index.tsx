@@ -4,7 +4,7 @@ import { NavBar, type NavBarProps } from 'antd-mobile';
 
 import { useRouter } from '@/hooks/useRouter';
 
-import './index.scss';
+import styles from './index.module.scss';
 
 // 扩展的属性接口
 export interface CustomNavBarProps extends NavBarProps {
@@ -67,7 +67,9 @@ const CustomNavBar: React.FC<CustomNavBarProps> = (props) => {
         <>
             <div
                 ref={navBarRef}
-                className={`custom-navbar-container ${fixed ? 'custom-navbar-fixed' : ''}`}
+                className={[styles.customNavbarContainer, fixed ? styles.customNavbarFixed : '']
+                    .filter(Boolean)
+                    .join(' ')}
             >
                 <NavBar {...navBarProps} style={navbarStyle} onBack={handleBack}>
                     {children || document.title}

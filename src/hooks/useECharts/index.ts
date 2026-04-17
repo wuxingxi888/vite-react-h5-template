@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef } from 'react';
 import type { EChartsOption } from 'echarts';
 import { debounce } from 'es-toolkit';
 
-import useThemeStore from '@/store/modules/useThemeStore';
+import { useThemeStore } from '@/stores';
 
 import echarts from './echarts';
 
@@ -34,7 +34,7 @@ export function useECharts(
     options: UseEChartsOptions = {},
 ) {
     const { theme = 'default' } = options;
-    const { themeMode } = useThemeStore();
+    const themeMode = useThemeStore((state) => state.themeMode);
 
     const chartInstanceRef = useRef<echarts.ECharts | null>(null);
     const cacheOptionsRef = useRef<EChartsOption>({});

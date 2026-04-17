@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.scss';
+import styles from './index.module.scss';
 
 interface VirtualStatusBarProps {
     className?: string;
@@ -31,7 +31,7 @@ const VirtualStatusBar: React.FC<VirtualStatusBarProps> = ({ className = '' }) =
     const signalStrength = getSignalStrength();
 
     return (
-        <div className={`virtual-status-bar ${className}`}>
+        <div className={[styles.virtualStatusBar, className].filter(Boolean).join(' ')}>
             <div className="content">
                 <div className="left">
                     <span className="time">{getCurrentTime()}</span>

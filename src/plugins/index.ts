@@ -5,7 +5,7 @@ import 'virtual:svg-icons-register';
 // 引入uno全局样式
 import 'virtual:uno.css';
 
-import NativeCallJs from '@/services/nativeCallJs';
+import { NativeCallJs } from '@/plugins/native-bridge';
 // 公共样式
 import '@/styles/scss/global.scss';
 

@@ -1,0 +1,16 @@
+.heroLogo {
+    animation: hero-logo-spin 3s ease-out 1 both;
+    will-change: transform, opacity;
+}
+
+@keyframes hero-logo-spin {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.92);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(360deg) scale(1);
+    }
+}

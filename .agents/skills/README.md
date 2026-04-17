@@ -11,43 +11,23 @@
 
 ## 技能地图
 
-### 需求与提案
+### 基线执行技能
+
+以下技能直接参与模板内常见 React 任务的生成与落地：
+
+- `create-route`
+- `create-component`
+- `create-api`
+- `create-store`
+- `theme-variables`
+
+### 工作流技能
+
+以下技能用于需求梳理、设计分析与验收追踪：
 
 - `create-proposal`
   - 用途：写 proposal、tasks、spec
   - 适合：页面需求、组件需求、接口需求、UI 还原需求
-
-### 页面与路由
-
-- `create-route`
-  - 用途：新增或调整页面路由
-  - 适合：新页面、路由改造、守卫接入、路由模块化
-
-### 组件
-
-- `create-component`
-  - 用途：新增、拆分、沉淀组件
-  - 适合：通用组件、页面级组件、组件迁移
-
-### 接口与数据层
-
-- `create-api`
-  - 用途：新增接口、请求层封装、mock 过渡
-  - 适合：业务 API、新增 DTO、axios 客户端整理
-
-### 状态管理
-
-- `create-store`
-  - 用途：新增或重构 Zustand store
-  - 适合：客户端共享状态、持久化状态
-
-### 样式与主题
-
-- `theme-variables`
-  - 用途：主题变量、暗黑模式、样式规范对齐
-  - 适合：颜色治理、CSS variables、组件库变量覆盖
-
-### 设计分析与验收
 
 - `design-analysis`
   - 用途：分析设计稿，产出 UI 分析清单
@@ -56,6 +36,10 @@
 - `ui-verification`
   - 用途：对照设计稿验收页面效果
   - 适合：实现完成后的还原度检查与问题追踪
+
+- `agents-governance`
+  - 用途：检查 `.agents` 内 rules / skills / README / 依赖声明的一致性
+  - 适合：新增或修改规则、技能后的治理回归
 
 ## 参考技能
 
@@ -72,6 +56,8 @@
 - `web-design-guidelines`
   - 说明：UI 设计与体验审查参考
 
+参考技能只能辅助 review、refactor、架构判断，不能单独决定目录、依赖或默认实现方案。
+
 ## 推荐触发顺序
 
 常见任务可按以下顺序组合：
@@ -80,6 +66,9 @@
 - 新功能组件：`create-proposal` -> `create-component` -> `theme-variables`
 - 接口联调：`create-proposal` -> `create-api` -> `create-store`
 - UI 还原：`design-analysis` -> 开发技能 -> `ui-verification`
+- 规则治理回归：`agents-governance`
+
+说明：参考技能不单独决定目录结构、依赖选择或技术选型，只能在基线规则已经确定边界后辅助判断。
 
 ## 扩展约定
 

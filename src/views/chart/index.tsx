@@ -1,6 +1,6 @@
-import BarChart from './BarChart';
-import LineChart from './LineChart';
-import PieChart from './PieChart';
+import BarChart from './components/BarChart';
+import LineChart from './components/LineChart';
+import PieChart from './components/PieChart';
 
 function Chart() {
     return (

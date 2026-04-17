@@ -1,0 +1,35 @@
+.forgetPasswordForm {
+    border: none !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+
+    :global {
+        .adm-list-body {
+            background-color: transparent !important;
+        }
+
+        .adm-list-item-content-prefix {
+            width: 30px;
+        }
+
+        .adm-list-body-inner {
+            background-color: transparent !important;
+        }
+
+        .adm-list-item {
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+
+        .adm-form-footer {
+            padding: 0;
+            margin-top: 20px;
+
+            .adm-button {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

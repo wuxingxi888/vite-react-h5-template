@@ -1,9 +1,10 @@
 import { Space } from 'antd-mobile';
-import { motion } from 'framer-motion';
 
 import Logo from '@/components/Logo';
 
 import { useEnv } from '@/hooks/useEnv';
+
+import styles from './index.module.scss';
 
 const Header = () => {
     const { getEnvConfig } = useEnv();
@@ -12,15 +13,9 @@ const Header = () => {
 
     return (
         <header className="flex flex-col items-center mt-20">
-            {/* 3D 立体旋转 */}
-            <motion.div
-                initial={{ opacity: 0, rotate: 0 }}
-                animate={{ opacity: 1, rotate: 360 }}
-                transition={{ duration: 3 }}
-                className="w-20 h-20"
-            >
+            <div className={`w-20 h-20 ${styles.heroLogo}`}>
                 <Logo className="!h-20 !w-20" />
-            </motion.div>
+            </div>
 
             <h1 className="font-[阿里妈妈东方大楷_regular,_serif] text-darkBlue dark:text-garyWhite mb-4 mt-5 text-center text-2xl font-black">
                 {title}
