@@ -79,6 +79,8 @@
         "@vitejs/plugin-legacy": "7.2.1",
         "@vitejs/plugin-react-swc": "^4.0.0",
         "autoprefixer": "10.4.21",
+        "baseline-browser-mapping": "2.10.20",
+        "caniuse-lite": "1.0.30001790",
         "eslint": "^9.33.0",
         "eslint-plugin-react-hooks": "^5.2.0",
         "eslint-plugin-react-refresh": "^0.4.20",

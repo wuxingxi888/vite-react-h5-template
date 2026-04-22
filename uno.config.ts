@@ -71,6 +71,12 @@ export default defineConfig({
             },
         }),
     ],
+    theme: {
+        fontFamily: {
+            // 保留 `font-msz` 工具类，同时避免构建阶段拉取外部字体资源
+            msz: '"Ma Shan Zheng", "STKaiti", "KaiTi", cursive',
+        },
+    },
     transformers: [
         /**
          * 启用 UnoCSS 的变体组功能(用法简写)

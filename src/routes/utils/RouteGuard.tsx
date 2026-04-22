@@ -90,15 +90,16 @@ export function getMenuRoutes() {
         const modList = Array.isArray(mod) ? mod : [mod];
         modList.forEach((route) => {
             if (Array.isArray(route.children) && route.children.length > 0) {
-                menu.push(
-                    ...route.children.filter(
-                        (child): child is routeItem =>
-                            typeof child.path === 'string' && Boolean(child?.meta?.title),
-                    ),
-                );
+                menu.push(...route.children.filter(isMenuRoute));
             }
         });
     });
 
     return menu;
+}
+
+function isMenuRoute(
+    child: routeItem,
+): child is routeItem & { path: string; meta: { title: string } } {
+    return typeof child.path === 'string' && typeof child.meta?.title === 'string';
 }

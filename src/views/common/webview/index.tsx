@@ -9,6 +9,7 @@ import CustomNavBar from '@/components/CustomNavBar';
 
 const WebView: React.FC = () => {
     const [iframeUrl, setIframeUrl] = useState<string>('');
+    const [reloadKey, setReloadKey] = useState(0);
     const [title, setTitle] = useState<string>('WebView');
     const location = useLocation();
 
@@ -53,7 +54,7 @@ const WebView: React.FC = () => {
 
     const onRefresh = () => {
         showLoading();
-        window.location.reload();
+        setReloadKey((value) => value + 1);
     };
 
     const onHandleError = () => {
@@ -77,6 +78,7 @@ const WebView: React.FC = () => {
                 {title}
             </CustomNavBar>
             <iframe
+                key={`${iframeUrl}-${reloadKey}`}
                 src={iframeUrl}
                 className="w-full flex-1"
                 allowFullScreen={true}

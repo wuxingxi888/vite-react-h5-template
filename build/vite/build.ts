@@ -2,6 +2,14 @@ import type { BuildOptions } from 'vite';
 
 import type { ImportMetaEnv } from '../../src/types/env';
 
+function getDefaultManualChunk(id: string): string | undefined {
+    if (id.includes('node_modules')) {
+        return 'vendor';
+    }
+
+    return undefined;
+}
+
 export function createBuild(viteEnv: ImportMetaEnv): BuildOptions {
     const { VITE_OUTPUT_DIR } = viteEnv;
     return {
@@ -18,6 +26,15 @@ export function createBuild(viteEnv: ImportMetaEnv): BuildOptions {
                 // 拆分js到模块文件夹
                 chunkFileNames: 'static/js/[name]-[hash].js',
                 entryFileNames: 'static/js/[name]-[hash].js',
+                /**
+                 * 默认分包策略：
+                 * - 模板层只提供一个保守的通用基线，将三方依赖统一收敛到 vendor chunk
+                 * - 这样可以避免不同包管理器目录结构差异带来的异常分包结果
+                 * - 如果业务项目有明确性能诉求，再按项目依赖结构定制 manualChunks
+                 */
+                manualChunks(id) {
+                    return getDefaultManualChunk(id);
+                },
                 // 拆分静态资源文件夹，[ext]表示文件扩展名
                 assetFileNames: (chunkInfo) => {
                     if (chunkInfo.name) {
@@ -33,13 +50,6 @@ export function createBuild(viteEnv: ImportMetaEnv): BuildOptions {
                         return `static/${extType}/[name]-[hash][extname]`;
                     }
                     return 'static/[ext]/[name]-[hash].[ext]';
-                },
-                manualChunks(id) {
-                    // 最小化拆分包
-                    if (id.includes('node_modules')) {
-                        return id.toString().split('node_modules/')[1].split('/')[0].toString();
-                    }
-                    return;
                 },
             },
         },

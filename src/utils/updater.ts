@@ -15,8 +15,12 @@ export class Updater {
         this.oldScript = [];
         this.newScript = [];
         this.dispatch = {};
-        this.init(); // 初始化
-        this.timing(options?.timer); // 轮询
+        void this.start(options?.timer);
+    }
+
+    async start(time?: number): Promise<void> {
+        await this.init();
+        this.timing(time);
     }
 
     async init(): Promise<void> {
@@ -29,13 +33,16 @@ export class Updater {
     }
 
     async getHtml(): Promise<string> {
-        const html = await fetch('/').then((res) => res.text()); // 读取index html
+        const baseUrl = new URL(import.meta.env.BASE_URL, window.location.origin);
+        const html = await fetch(baseUrl.toString(), { cache: 'no-store' }).then((res) =>
+            res.text(),
+        );
         return html;
     }
 
     parseScript(html: string): string[] {
         const reg = new RegExp(/<script(?:\s+[^>]*)?>(.*?)<\/script\s*>/gi); // script正则
-        return html.match(reg) as string[]; // 匹配script标签
+        return html.match(reg) ?? []; // 匹配script标签
     }
 
     // 发布订阅通知
@@ -53,6 +60,7 @@ export class Updater {
         } else {
             // 否则通知更新
             this.dispatch.update?.forEach((fn) => fn());
+            this.oldScript = [...newArr];
         }
     }
 
